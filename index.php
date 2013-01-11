@@ -3,12 +3,23 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Online Code Editor - Playground</title>
-	<meta name="description" content="tutlage playground is an online code editor similar to jsfiddle and jsbin, it allows you to write and test your code right into browser" />
-	<meta name="keywords" content="online code editor,test jsvascript online, html5 code editor,canvas browser editor" />
-	<meta name="author" content="thetutlage" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CodR - Online Code Editor</title>
+	
+	<!-- meta tags here -->
+	
+	<meta name="description" content="CodR allows you to code right into browser" />
+	<meta name="keywords" content="browser, code, editor, online, personal, jquery, javascript, html5" />
+	<meta name="author" content="Anthony Young" />
+	
+	<!-- codemonkey css here -->
+	
 	<link rel="stylesheet" href="CodeMirror/lib/codemirror.css">
 	<link rel="stylesheet" href="CodeMirror/theme/monokai.css">
+	
+	
+	<!-- js here -->
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="CodeMirror/lib/codemirror.js"></script>
 	<script src="CodeMirror/lib/util/closetag.js"></script>
@@ -18,15 +29,291 @@
 	<script src="CodeMirror/mode/xml/xml.js"></script>
 	<script src="CodeMirror/mode/php/php.js"></script>
 	<script src="CodeMirror/mode/clike/clike.js"></script>
+	
+	<script src="js/bootstrap.js"></script>
+	
 	<script type="text/javascript" src="js/hotkeys.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
+	
+	<!-- css here -->
+	
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	
+	<link rel="stylesheet" href="css/main.css" />
+	
+	<?php if (false): ?>
+	
 	<link rel="stylesheet" href="css/playground.css" />
+	
+	<?php endif;?>
+	
 </head>
 <body>
+
+	<!-- start of nav -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">CodR</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+            
+              <li class="divider-vertical"></li>
+              <li class="active">
+                <a href="/">Home</a>
+              </li>
+              <li class="divider-vertical"></li>
+              
+              <li>
+              <a href="#" onclick="document.codeRunner.submit();return false;" class="button_old green_old"><span class="icon-play"></span><span class="">Run - CTRL + S</span></a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of nav -->
+
+
+    <!-- start of container-fluid -->
+
+    <div class="container-fluid" style="margin-top: 50px;">
+	    
+	    
+		<div class="row-fluid">
+			<div class="span4">
+			
+			<?php if (false): ?>
+			
+			<!--Sidebar content-->
+				sidebar
+				
+				<div id="interact">
+					<a href="#" onclick="document.codeRunner.submit();return false;" class="button green"> Run <span class="icon play">CTRL + S</span></a>
+					<?php if(isset($html_structure) && !empty($html_structure)) { ?> 
+					<a href="#" onclick="show_confirm(); return false; " class="button red"> Reset <span class="icon">ALT + R</span></a>
+					<a href="download.php" class="button fade"> Download <span class="icon">ALT + D</span></a>
+					<?php } ?>
+					<a href="#" class="button fade" id="add_ex_files"> Add Files <?php if(isset($_SESSION['external_libs_count']) && $_SESSION['external_libs_count'] != 0) { echo '<span class="resources_count">'.$_SESSION['external_libs_count'].'</span>'; }?><span class="icon">ALT + A</span></a>
+				</div><!-- end interact -->
+	
+				<div id="info_copyright">
+					<span class="official_logo">
+						Anthony young
+					</span>
+	
+				</div>	
+				
+				<?php endif; ?>		
+				
+				left
+				
+			<!-- SETTING USER FILE -->
+			<input type="hidden" name="filename" value="<?php if(isset($username)) { echo $username; } ?>" id="filename"/>
+			<input type="hidden" name="active_tab" value="<?php if(isset($_SESSION['active_tab'])) { echo $_SESSION['active_tab'];} else { echo 'html'; }?>" id="active_tab"/>
+			<!-- SETTING USER FILE  -->
+					
+			<div id="compiler">
+				<div id="editorWrapper" class="box">
+					<div id="editor">
+						<div id="codeplaceWrapper">
+							<!-- CODE CLASS STARTS HERE -->
+							<div id="html_area" class="areaBox onTop">
+								<h2>Html
+								</h2>
+								<div class="textareaWrapper">
+									<textarea id="html_code" name="html_code" class="codeEdtitor"><?php if(isset($_SESSION['playground_html'])) { echo $_SESSION['playground_html']; } ?></textarea>
+								</div>
+							</div><!-- end html -->
+							<!-- END CODE CLASS STARTS HERE -->
+						</div>
+					</div>
+				</div>
+			</div>
+							
+			
+			</div>
+			<div class="span4">
+			<!--Body content-->
+				
+				middle
+				
+				
+				
+
+
+			<div id="compiler">
+				<div id="editorWrapper" class="box">
+					<div id="editor">
+						<div id="codeplaceWrapper">
+
+
+							<!-- CODE CLASS STARTS HERE -->
+							<div id="css_area" class="areaBox">
+								<h2>CSS
+								</h2>
+								<div class="textareaWrapper">
+									<textarea id="css_code" name="css_code" class="codeEdtitor"><?php if(isset($_SESSION['playground_css'])) { echo $_SESSION['playground_css']; } ?></textarea>
+								</div>
+							</div><!-- end css -->
+							<!-- END CODE CLASS STARTS HERE -->
+
+							<!-- CODE CLASS STARTS HERE -->
+							<div id="comments_area" class="areaBox">
+								<h2>Comments
+								</h2>
+								<div class="textareaWrapper">
+									<textarea id="comments_code" name="comments_code" class="codeEdtitor"><?php if(isset($_SESSION['playground_comments'])) { echo $_SESSION['playground_comments']; } ?></textarea>
+								</div>
+							</div><!-- end css -->
+							<!-- END CODE CLASS STARTS HERE -->
+
+							<!-- REQUIRED TO DELETE UNWANTED FILES -->
+							<div id="load"></div>
+							<!-- REQUIRED TO DELETE UNWANTED FILES -->
+
+							
+						</div><!-- end codePlaceWrapper -->
+					</div><!-- end editor -->
+					<div id="nav">
+						<a href="#" id="html" class="active"> Html </a>
+						<a href="#" id="css"> Css </a>
+						<a href="#" id="js"> Js </a>
+						<a href="#" id="comments"> Comments </a>
+					</div><!-- end nav -->
+				</div><!-- end editorWrapper -->
+			</form>
+				
+			<div id="outputWrapper" class="test span4 offset6">
+				<div class="frameArea">
+					<iframe id="outputPreview" <?php if(isset($filename)) { echo 'src="'.$filename.'"'; } ?>></iframe>
+				</div>
+				
+				<div id="outputNav">
+					<strong>Output</strong>
+				</div>
+				<a href="#" class="fullscreen off"> Toogle FullScreen </a>
+			</div>
+			
+		</div><!-- end compiler -->				
+				
+				
+				
+			
+			</div><!-- end span4 -->
+			
+			
+		    <div class="span4">
+		    
+		    right
+		    
+			<div id="compiler">
+				<div id="editorWrapper" class="box">
+					<div id="editor">
+						<div id="codeplaceWrapper">
+<!-- CODE CLASS STARTS HERE -->
+							<div id="js_area" class="areaBox">
+								<h2>Js
+									<label for="Add To">OnLoad
+									<select name="add_to" id="add_to">
+										<?php
+										if(isset($_SESSION['js_default_position']))
+										{
+											echo '<option value="'.$_SESSION['js_default_position'].'" selected="selected">'.$_SESSION['js_default_position'].'</option>';
+											foreach($left_positions as $key => $value)
+											{
+												echo '<option value="'.$value.'">'.$value.'</option>';
+											}
+										}
+										else
+										{
+											foreach($js_on_load_position as $key => $value)
+											{
+												echo '<option value="'.$value.'">'.$value.'</option>';
+											}
+										}
+										?>
+									</select>
+									</label>
+
+									<label for="Format">Format
+										<select name="onload" id="onload">
+											<?php
+												if(isset($_SESSION['selected_js_lib'])){
+													echo '<option value="'.$_SESSION['selected_js_lib'].'" selected="selected">'.$_SESSION['selected_js_lib'].'</option>';
+													foreach($left_js_array as $key => $value)
+													{
+														echo '<option value="'.$value.'">'.$value.'</option>';
+													}
+												}
+												else
+												{
+													foreach($js_array as $key => $value)
+													{
+														echo '<option value="'.$value.'">'.$value.'</option>';
+													}
+												}
+											?>
+										</select>
+									</label>
+								</h2>
+								<div class="textareaWrapper">
+									<textarea id="js_code" name="js_code" class="codeEdtitor"><?php if(isset($_SESSION['playground_js'])) { echo $_SESSION['playground_js']; } ?></textarea>
+								</div>
+							</div><!-- end css -->
+							<!-- END CODE CLASS STARTS HERE -->
+						</div>
+					</div>
+				</div>
+			</div>		    
+		    
+		    
+		    
+
+		
+			</div><!-- end span4 -->
+	
+	
+		</div><!-- end row-fluid -->
+	    
+	    
+	    
+	    
+					<div id="outputWrapper" class="test span4">
+						<div class="frameArea">
+							<iframe id="outputPreview" <?php if(isset($filename)) { echo 'src="'.$filename.'"'; } ?>></iframe>
+						</div>
+						
+						<div id="outputNav">
+							<strong>Output</strong>
+						</div>
+						<a href="#" class="fullscreen off"> Toogle FullScreen </a>
+					</div>
+	    
+	    
+    </div>
+    <!-- end of container-fluid -->
+    
+
+	<!-- old -->
+
+
 	<div id="bodyWrapper">
+	
+		<?php if (false): ?>
 		<div class="modal-backdrop"></div>
+		
 		<div id="header">
 		</div><!-- end header -->
+
+		<?php endif; ?>
+
 
 		<form method="post" action="index.php" name="codeRunner">
 
@@ -47,8 +334,11 @@
 			</div>
 
 
+
+			<?php if (false): ?>
 			<div id="sidebar">
-				<h2 id="logo"><img src="images/logo.png" /></h2>
+			
+			
 				<div id="interact">
 					<a href="#" onclick="document.codeRunner.submit();return false;" class="button green"> Run <span class="icon play">CTRL + S</span></a>
 					<?php if(isset($html_structure) && !empty($html_structure)) { ?> 
@@ -60,12 +350,17 @@
 	
 				<div id="info_copyright">
 					<span class="official_logo">
-						<a href="http://www.thetutlage.com" target="_blank"><img src="images/logo_footer.png" /></a>
+						Anthony young
 					</span>
 	
 				</div>
 			</div><!-- end sidebar -->
-
+			<?php endif; ?>
+			
+			
+			
+			
+<?php if (false): ?>
 			<!-- SETTING USER FILE -->
 			<input type="hidden" name="filename" value="<?php if(isset($username)) { echo $username; } ?>" id="filename"/>
 			<input type="hidden" name="active_tab" value="<?php if(isset($_SESSION['active_tab'])) { echo $_SESSION['active_tab'];} else { echo 'html'; }?>" id="active_tab"/>
@@ -171,7 +466,9 @@
 				</div><!-- end editorWrapper -->
 			</form>
 				
-			<div id="outputWrapper" class="test">
+			<?php if (false): ?>	
+				
+			<div id="outputWrapper" class="test span4">
 				<div class="frameArea">
 					<iframe id="outputPreview" <?php if(isset($filename)) { echo 'src="'.$filename.'"'; } ?>></iframe>
 				</div>
@@ -182,8 +479,18 @@
 				<a href="#" class="fullscreen off"> Toogle FullScreen </a>
 			</div>
 			
+			<?php endif; ?>
+			
 		</div><!-- end compiler -->
+		<?php endif; ?>
+		
+		
 	</div><!-- end bodyWrapper -->
+	
+	
+	
+	
+	
 	<script>
 		   var editor = CodeMirror.fromTextArea(document.getElementById("js_code"), {
 			mode: "javascript",
