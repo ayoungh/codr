@@ -62,6 +62,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          
           <a class="brand" href="/">CodR</a>
           <div class="nav-collapse collapse">
             <ul class="nav">

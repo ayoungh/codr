@@ -28,7 +28,8 @@ $(function(){
 	function customFuncForFocus(){
 		
 		if ($('.CodeMirror,').focus()) {
-			alert('yes');
+			//alert('yes');
+			//this focus is happening from get go
 		}
 		
 	}
