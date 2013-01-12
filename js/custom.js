@@ -166,7 +166,7 @@ $(function(){
 
 function show_confirm()
 {
-	var con = confirm("Resting playgrond will clear all the code. Do you wish to continue ?");
+	var con = confirm("Resetting codr will clear all the code. Do you wish to continue ?");
 	if(con ==true)
 	{
 		window.location = 'reset.php';

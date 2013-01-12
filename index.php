@@ -79,13 +79,15 @@
               <a href="#" onclick="document.codeRunner.submit();return false;" class="button_old green_old"><span class="icon-play"></span><span class="">Run - CTRL + S</span></a>
               </li>
               
+              
+              
 			  <?php if(isset($html_structure) && !empty($html_structure)) { ?> 
             <li>
 					<a href="#" onclick="show_confirm(); return false; " class="button red"> Reset <span class="icon">ALT + R</span></a>
             </li>
             <li>		
 					
-					<a href="download.php" class="button fade"> Download <span class="icon">ALT + D</span></a>
+					<a href="download.php" class="button fade_old"> Download <span class="icon">ALT + D</span></a>
 			</li>		
 					
 			  <?php } ?>              
@@ -104,6 +106,8 @@
 
     <div class="container-fluid" style="margin-top: 50px;">
 	    
+	    
+	    <form method="post" action="index.php" name="codeRunner">
 	    
 		<div class="row-fluid">
 			<div class="span4">

@@ -2,6 +2,11 @@ body {
 	background: #F0F0F0;
 }
 
+html body div.container-fluid div#outputWrapper.test body {
+	background: #ffffff;
+}
+
+
 .textareaWrapper,
 textarea {
   margin-top: 10px;
