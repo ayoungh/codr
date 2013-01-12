@@ -137,11 +137,10 @@
 				
     <div class="navbar">
     <div class="navbar-inner">
-    <a class="brand" href="#">HTML LEFT</a>
+    <a class="brand" href="#">HTML</a>
     <ul class="nav">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Link</a></li>
-    <li><a href="#">Link</a></li>
+    <li class="divider-vertical"></li>
+
     </ul>
     </div>
     </div>				
@@ -177,11 +176,9 @@
 
     <div class="navbar">
     <div class="navbar-inner">
-    <a class="brand" href="#">CSS MIDDLE</a>
+    <a class="brand" href="#">CSS</a>
     <ul class="nav">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Link</a></li>
-    <li><a href="#">Link</a></li>
+	<li class="divider-vertical"></li>
     </ul>
     </div>
     </div>				
@@ -203,6 +200,8 @@
 							</div><!-- end css -->
 							<!-- END CODE CLASS STARTS HERE -->
 
+							<?php if (false): ?>
+
 							<!-- CODE CLASS STARTS HERE -->
 							<div id="comments_area" class="areaBox">
 								<h2>Comments
@@ -212,6 +211,9 @@
 								</div>
 							</div><!-- end css -->
 							<!-- END CODE CLASS STARTS HERE -->
+
+							<?php endif; ?>
+
 
 							<!-- REQUIRED TO DELETE UNWANTED FILES -->
 							<div id="load"></div>
@@ -256,11 +258,10 @@
 		    
     <div class="navbar">
     <div class="navbar-inner">
-    <a class="brand" href="#">JS - RIGHT</a>
+    <a class="brand" href="#">JS</a>
     <ul class="nav">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Link</a></li>
-    <li><a href="#">Link</a></li>
+	<li class="divider-vertical"></li>
+    <li><a href="#">Options</a></li>
     </ul>
     </div>
     </div>
@@ -276,7 +277,7 @@
 						
 							<!-- CODE CLASS STARTS HERE -->
 							<div id="js_area" class="areaBox">
-								<h2>Js
+								<?php if (false): ?>
 									<label for="Add To">OnLoad
 									<select name="add_to" id="add_to">
 										<?php
@@ -319,7 +320,9 @@
 											?>
 										</select>
 									</label>
-								</h2>
+									
+									<?php endif; ?>
+									
 								<div class="textareaWrapper">
 									<textarea id="js_code" name="js_code" class="codeEdtitor"><?php if(isset($_SESSION['playground_js'])) { echo $_SESSION['playground_js']; } ?></textarea>
 								</div>
@@ -342,15 +345,21 @@
 		</div><!-- end row-fluid -->
 	    
 	    
+	    <div class="navbar">
+	    <div class="navbar-inner">
+	    <a class="brand" href="#">Output</a>
+	    <ul class="nav">
+		<li class="divider-vertical"></li>
+	    </ul>
+	    </div>
+	    </div>		
 	    
-		<div id="outputWrapper" class="test span12">
+	    
+		<div id="outputWrapper" class="">
 			<div class="frameArea">
 				<iframe id="outputPreview" <?php if(isset($filename)) { echo 'src="'.$filename.'"'; } ?>></iframe>
 			</div>
-			
-			<div id="outputNav">
-				<strong>Output</strong>
-			</div>
+
 			<a href="#" class="fullscreen off"> Toogle FullScreen </a>
 		</div>	    
 

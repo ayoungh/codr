@@ -40,6 +40,51 @@ textarea:focus {
 
 
 
+
+
+#outputWrapper{
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	margin: 0px auto;
+	background: none repeat scroll 0 0 #F3F3F3;
+
+}
+#outputWrapper .frameArea {
+	height: 100%;
+
+}
+#outputWrapper iframe {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #CCCCCC;
+	height: 100%;
+	width: 100%;
+}
+
+#outputNav strong{
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	color: #DDDDDD;
+	display: block;
+
+	font-family: shanti,sans-serif;
+	font-weight: normal;
+	height: 25px;
+	margin-right: 2px;
+	overflow: hidden;
+	padding: 0 10px;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+	background: none repeat scroll 0 0 #F3F3F3;
+	box-shadow: 2px 0 0 rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 2px 0 0 rgba(0, 0, 0, 0.2);
+	webkit-box-shadow: 2px 0 0 rgba(0, 0, 0, 0.2);
+	color: #777777;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+
 /*Code mirror*/
 
 .CodeMirror-gutter {
