@@ -5,9 +5,8 @@ body {
 .textareaWrapper,
 textarea {
   margin-top: 10px;
-  margin-left: 50px;
 
-  height: 100px;
+  min-height: 100px;
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
@@ -40,4 +39,11 @@ textarea:focus {
 
 .CodeMirror-gutter {
 	border-radius: 2px 2px 2px 2px;
+}
+
+
+
+
+iframe {
+	width: 100%;
 }

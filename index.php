@@ -1,4 +1,6 @@
 <?php include_once( 'libs/render.php' );?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
 	<meta name="keywords" content="browser, code, editor, online, personal, jquery, javascript, html5" />
 	<meta name="author" content="Anthony Young" />
 	
-	<!-- codemonkey css here -->
+	<!-- codemirror css here -->
 	
 	<link rel="stylesheet" href="CodeMirror/lib/codemirror.css">
 	<link rel="stylesheet" href="CodeMirror/theme/monokai.css">
@@ -31,7 +33,7 @@
 	<script src="CodeMirror/mode/php/php.js"></script>
 	<script src="CodeMirror/mode/clike/clike.js"></script>
 	
-	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
 	
 	<script type="text/javascript" src="js/hotkeys.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
@@ -76,6 +78,19 @@
               <li>
               <a href="#" onclick="document.codeRunner.submit();return false;" class="button_old green_old"><span class="icon-play"></span><span class="">Run - CTRL + S</span></a>
               </li>
+              
+			  <?php if(isset($html_structure) && !empty($html_structure)) { ?> 
+            <li>
+					<a href="#" onclick="show_confirm(); return false; " class="button red"> Reset <span class="icon">ALT + R</span></a>
+            </li>
+            <li>		
+					
+					<a href="download.php" class="button fade"> Download <span class="icon">ALT + D</span></a>
+			</li>		
+					
+			  <?php } ?>              
+              
+              
 
             </ul>
           </div>
@@ -116,7 +131,17 @@
 				
 				<?php endif; ?>		
 				
-				left
+    <div class="navbar">
+    <div class="navbar-inner">
+    <a class="brand" href="#">HTML LEFT</a>
+    <ul class="nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+    </ul>
+    </div>
+    </div>				
+				
 				
 			<!-- SETTING USER FILE -->
 			<input type="hidden" name="filename" value="<?php if(isset($username)) { echo $username; } ?>" id="filename"/>
@@ -129,8 +154,7 @@
 						<div id="codeplaceWrapper">
 							<!-- CODE CLASS STARTS HERE -->
 							<div id="html_area" class="areaBox onTop">
-								<h2>Html
-								</h2>
+
 								<div class="textareaWrapper">
 									<textarea id="html_code" name="html_code" class="codeEdtitor"><?php if(isset($_SESSION['playground_html'])) { echo $_SESSION['playground_html']; } ?></textarea>
 								</div>
@@ -146,8 +170,17 @@
 			<div class="span4">
 			<!--Body content-->
 				
-				middle
-				
+
+    <div class="navbar">
+    <div class="navbar-inner">
+    <a class="brand" href="#">CSS MIDDLE</a>
+    <ul class="nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+    </ul>
+    </div>
+    </div>				
 				
 				
 
@@ -160,8 +193,6 @@
 
 							<!-- CODE CLASS STARTS HERE -->
 							<div id="css_area" class="areaBox">
-								<h2>CSS
-								</h2>
 								<div class="textareaWrapper">
 									<textarea id="css_code" name="css_code" class="codeEdtitor"><?php if(isset($_SESSION['playground_css'])) { echo $_SESSION['playground_css']; } ?></textarea>
 								</div>
@@ -194,6 +225,8 @@
 				</div><!-- end editorWrapper -->
 			</form>
 				
+			<?php if (false): ?>	
+				
 			<div id="outputWrapper" class="test span4 offset6">
 				<div class="frameArea">
 					<iframe id="outputPreview" <?php if(isset($filename)) { echo 'src="'.$filename.'"'; } ?>></iframe>
@@ -205,6 +238,8 @@
 				<a href="#" class="fullscreen off"> Toogle FullScreen </a>
 			</div>
 			
+			<?php endif; ?>
+			
 		</div><!-- end compiler -->				
 				
 				
@@ -215,13 +250,27 @@
 			
 		    <div class="span4">
 		    
-		    right
+    <div class="navbar">
+    <div class="navbar-inner">
+    <a class="brand" href="#">JS - RIGHT</a>
+    <ul class="nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+    </ul>
+    </div>
+    </div>
 		    
 			<div id="compiler">
 				<div id="editorWrapper" class="box">
 					<div id="editor">
 						<div id="codeplaceWrapper">
-<!-- CODE CLASS STARTS HERE -->
+						
+							<!-- REQUIRED TO DELETE UNWANTED FILES -->
+							<div id="load"></div>
+							<!-- REQUIRED TO DELETE UNWANTED FILES -->						
+						
+							<!-- CODE CLASS STARTS HERE -->
 							<div id="js_area" class="areaBox">
 								<h2>Js
 									<label for="Add To">OnLoad
@@ -283,40 +332,48 @@
 		
 			</div><!-- end span4 -->
 	
+
+	
 	
 		</div><!-- end row-fluid -->
 	    
 	    
 	    
-	    
-					<div id="outputWrapper" class="test span4">
-						<div class="frameArea">
-							<iframe id="outputPreview" <?php if(isset($filename)) { echo 'src="'.$filename.'"'; } ?>></iframe>
-						</div>
-						
-						<div id="outputNav">
-							<strong>Output</strong>
-						</div>
-						<a href="#" class="fullscreen off"> Toogle FullScreen </a>
-					</div>
-	    
+		<div id="outputWrapper" class="test span12">
+			<div class="frameArea">
+				<iframe id="outputPreview" <?php if(isset($filename)) { echo 'src="'.$filename.'"'; } ?>></iframe>
+			</div>
+			
+			<div id="outputNav">
+				<strong>Output</strong>
+			</div>
+			<a href="#" class="fullscreen off"> Toogle FullScreen </a>
+		</div>	    
+
+		
+
 	    
     </div>
     <!-- end of container-fluid -->
     
 
-	<!-- old -->
 
+
+
+
+
+	<!-- old -->
+	<?php if (false): ?>
 
 	<div id="bodyWrapper">
 	
-		<?php if (false): ?>
+		
 		<div class="modal-backdrop"></div>
 		
 		<div id="header">
 		</div><!-- end header -->
 
-		<?php endif; ?>
+		
 
 
 		<form method="post" action="index.php" name="codeRunner">
@@ -408,7 +465,7 @@
 
 							<!-- CODE CLASS STARTS HERE -->
 							<div id="js_area" class="areaBox">
-								<h2>Js
+								
 									<label for="Add To">OnLoad
 									<select name="add_to" id="add_to">
 										<?php
@@ -489,7 +546,7 @@
 		
 	</div><!-- end bodyWrapper -->
 	
-	
+	<?php endif; ?>
 	
 	
 	
