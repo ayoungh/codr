@@ -21,6 +21,7 @@
 	<!-- js here -->
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
 	<script src="CodeMirror/lib/codemirror.js"></script>
 	<script src="CodeMirror/lib/util/closetag.js"></script>
 	<script src="CodeMirror/mode/javascript/javascript.js"></script>
@@ -34,6 +35,8 @@
 	
 	<script type="text/javascript" src="js/hotkeys.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
+	
+	<script type="text/javascript" src="js/main.js"></script>
 	
 	<!-- css here -->
 	
@@ -337,8 +340,6 @@
 
 			<?php if (false): ?>
 			<div id="sidebar">
-			
-			
 				<div id="interact">
 					<a href="#" onclick="document.codeRunner.submit();return false;" class="button green"> Run <span class="icon play">CTRL + S</span></a>
 					<?php if(isset($html_structure) && !empty($html_structure)) { ?> 

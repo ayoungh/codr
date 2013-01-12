@@ -25,6 +25,16 @@ $(function(){
 		resizeCodeMirror();
 	});
 	
+	function customFuncForFocus(){
+		
+		if ($('.CodeMirror,').focus()) {
+			alert('yes');
+		}
+		
+	}
+	customFuncForFocus();
+	
+	
 	function resizeCodeMirror(){
 		parentHeight = $('.areaBox').height();
 		newParentHeight = parseInt(parentHeight) - 30;
