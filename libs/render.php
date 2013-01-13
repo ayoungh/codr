@@ -1,9 +1,11 @@
 <?php
 	include_once( 'config.php' );
+	
 	$back_to_js_structure = '';
 	$append_structure = '';
 	$x = 0;
 	$active_tab = 'html';
+	
 	if($_POST)
 	{
 		session_start();
@@ -139,7 +141,7 @@ $html_structure	.='
 	$_SESSION['external_libraries'] = $append_structure;
 	$_SESSION['playground_js'] = $js;
 	$_SESSION['playground_css'] = $css;
-	$_SESSION['playground_html'] = $html;
+	$_SESSION['playground_html'] = stripslashes($html);
 	$_SESSION['playground_comments'] = $comments;
 	$_SESSION['selected_js_lib'] = $onload;
 	$_SESSION['existing_external_libs'] = $back_to_js_structure;
@@ -147,7 +149,7 @@ $html_structure	.='
 	$_SESSION['active_tab'] = $active_tab;
 	$_SESSION['js_default_position'] = $add_to;
 
-	fwrite($filehandle,$html_structure);
+	fwrite($filehandle,stripslashes($html_structure));
 	fclose($filehandle);
 }
 ?>
