@@ -5,7 +5,7 @@
 		$download_username = $dir1.strtotime("now").'.html';
 		$filename1 = $download_username;
 		$filehandle1 = fopen($filename1, 'w') or die("can't open file");
-		fwrite($filehandle1,$_SESSION['mashed_code']);
+		fwrite($filehandle1,stripslashes($_SESSION['mashed_code']));
 		fclose($filehandle1);
 		header('Content-type: text/html');
 		header('Content-Disposition: attachment; filename="'.$filename1.'"');
