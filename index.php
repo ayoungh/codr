@@ -109,8 +109,7 @@
 	    
 	    <form method="post" action="index.php" name="codeRunner">
 	    
-	    
-	    
+
 	    
 		<div class="row-fluid">
 			<div class="span4">
@@ -225,12 +224,18 @@
 							
 						</div><!-- end codePlaceWrapper -->
 					</div><!-- end editor -->
+					
+					<?php if (false): ?>
+					
 					<div id="nav">
 						<a href="#" id="html" class="active"> Html </a>
 						<a href="#" id="css"> Css </a>
 						<a href="#" id="js"> Js </a>
 						<a href="#" id="comments"> Comments </a>
 					</div><!-- end nav -->
+					
+					<?php endif; ?>
+					
 				</div><!-- end editorWrapper -->
 			</form>
 				
@@ -346,7 +351,7 @@
 	
 	
 		</div><!-- end row-fluid -->
-	    
+	    </form>
 	    
 	    <div class="navbar">
 	    <div class="navbar-inner">

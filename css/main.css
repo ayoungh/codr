@@ -6,10 +6,14 @@ html body div.container-fluid div#outputWrapper.test body {
 	background: #ffffff;
 }
 
+html body div.container-fluid form div.row-fluid div.span4 div.navbar {
+	margin-bottom: 0px;
+}
+
 
 .textareaWrapper,
 textarea {
-  margin-top: 10px;
+  margin-top: 5px;
 
   min-height: 100px;
   -moz-border-bottom-colors: none;
