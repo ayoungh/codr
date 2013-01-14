@@ -101,3 +101,27 @@ textarea:focus {
 iframe {
 	width: 100%;
 }
+
+
+
+
+
+
+
+
+/*Js options*/
+
+.js_options {
+    border: 1px dashed #F2F2F2;
+    display: block;
+    height: 150px;
+    margin: 40px 0;
+    padding: 10px;
+}
+
+span.js_options label {
+	width: 100%;
+	margin: 2px 0px;
+}
+
+

@@ -24,6 +24,7 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	
+	
 	<script src="CodeMirror/lib/codemirror.js"></script>
 	<script src="CodeMirror/lib/util/closetag.js"></script>
 	<script src="CodeMirror/mode/javascript/javascript.js"></script>
@@ -269,10 +270,63 @@
     <a class="brand" href="#">JS</a>
     <ul class="nav">
 	<li class="divider-vertical"></li>
-    <li><a href="#">Options</a></li>
+    <li class="js_options_btn"><a href="#">Options</a></li>
     </ul>
+    <span class="js_options">
+	    
+	   
+	   
+									<label for="Add To">OnLoad
+									<select name="add_to" id="add_to">
+										<?php
+										if(isset($_SESSION['js_default_position']))
+										{
+											echo '<option value="'.$_SESSION['js_default_position'].'" selected="selected">'.$_SESSION['js_default_position'].'</option>';
+											foreach($left_positions as $key => $value)
+											{
+												echo '<option value="'.$value.'">'.$value.'</option>';
+											}
+										}
+										else
+										{
+											foreach($js_on_load_position as $key => $value)
+											{
+												echo '<option value="'.$value.'">'.$value.'</option>';
+											}
+										}
+										?>
+									</select>
+									</label>
+
+									<label for="Format">Format
+										<select name="onload" id="onload">
+											<?php
+												if(isset($_SESSION['selected_js_lib'])){
+													echo '<option value="'.$_SESSION['selected_js_lib'].'" selected="selected">'.$_SESSION['selected_js_lib'].'</option>';
+													foreach($left_js_array as $key => $value)
+													{
+														echo '<option value="'.$value.'">'.$value.'</option>';
+													}
+												}
+												else
+												{
+													foreach($js_array as $key => $value)
+													{
+														echo '<option value="'.$value.'">'.$value.'</option>';
+													}
+												}
+											?>
+										</select>
+									</label>	   
+	    
+	    
+	    
+    </span>
     </div>
     </div>
+    
+    
+    
 		    
 			<div id="compiler">
 				<div id="editorWrapper" class="box">
