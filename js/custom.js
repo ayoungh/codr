@@ -148,6 +148,7 @@ $(function(){
 		});
 	});
 	
+	/*
 	$('.fullscreen').click(function(){
 		if($(this).hasClass('off'))
 		{
@@ -161,6 +162,7 @@ $(function(){
 		}
 		return false;
 	})
+	*/
 	
 });
 
@@ -190,6 +192,8 @@ function showPopUp(){
 	$('.modal-backdrop').show();
 }
 
+/*
+
 function fullScreen(){
 	$('#outputWrapper').css({
 		"width": "100%",
@@ -215,4 +219,6 @@ function exitfullScreen(){
 	$('#editorWrapper').show();
 	$('#sidebar').show();
 }
+
+*/
 

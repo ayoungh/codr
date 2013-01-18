@@ -1,5 +1,11 @@
+html {
+
+}
+
 body {	
 	background: #F0F0F0;
+
+	
 }
 
 html body div.container-fluid div#outputWrapper.test body {
@@ -105,7 +111,16 @@ iframe {
 
 
 
+a.fullscreen {
+	color: #000000;
+	padding: 0px 15px;
+	font-size: 10px;
+}
 
+a.fullscreen:hover {
+	text-decoration: none;
+	color: #646262;
+}
 
 
 

@@ -57,7 +57,7 @@
 <body>
 
 	<!-- start of nav -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -113,7 +113,7 @@
 
 	    
 		<div class="row-fluid">
-			<div class="span4">
+			<div id="html_section" class="span4">
 			
 			<?php if (false): ?>
 			
@@ -172,8 +172,11 @@
 			</div>
 							
 			
-			</div>
-			<div class="span4">
+			</div><!-- end of html section -->
+			
+			
+			
+			<div id="css_section" class="span4">
 			<!--Body content-->
 				
 
@@ -263,7 +266,7 @@
 			</div><!-- end span4 -->
 			
 			
-		    <div class="span4">
+		    <div id="js_section" class="span4">
 		    
     <div class="navbar">
     <div class="navbar-inner">
