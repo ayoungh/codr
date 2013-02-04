@@ -9,7 +9,20 @@ I plan to make a clean and powerful opensource playground for anyone to use as p
 
 ## Using the following extras:
 
-Bootstrap. 
+Bootstrap. http://twitter.github.com/bootstrap/
+
+
+# The plan:
+
+Clean up the code from previous Tutlage code
+
+Add database functionality
+
+Make it easy and fun to use
+
+Github Integration
+
+Mobile friendly
 
 ====
 
