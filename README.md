@@ -1,4 +1,4 @@
-## CodR
+# CodR
 ====
 
 In Browser Code Editor adaptation from Tutlage Playground.
@@ -12,7 +12,7 @@ I plan to make a clean and powerful opensource playground for anyone to use as p
 Bootstrap. http://twitter.github.com/bootstrap/
 
 
-# The plan:
+### The plan:
 
 Clean up the code from previous Tutlage code
 
