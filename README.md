@@ -1,15 +1,15 @@
-CodR
+## CodR
 ====
 
-My own in browser code testing online adaptation of Tutlage Playground - In Browser Code Editor.
+In Browser Code Editor adaptation from Tutlage Playground.
 
-I will be fully changing the above to work in a nice clean way with extra features and the idea that anyone can add one of these to there site.
+I plan to make a clean and powerful opensource playground for anyone to use as part of their own website.
 
 ====
 
-Using the following extras:
+## Using the following extras:
 
-Bootstrap.
+Bootstrap. 
 
 ====
 
